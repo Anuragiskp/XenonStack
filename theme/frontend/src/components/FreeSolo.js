@@ -8,7 +8,7 @@ export default function FreeSolo() {
   const [filteredBooks, setFilteredBooks] = React.useState([]);
   const [ItemsData, setItemsData] = React.useState([]);
 
-  const URI = "http://localhost:5000/books/data"
+  const URI = "https://xenonstack-q6kv.onrender.com/books/data"
 
   // FETCHING BOOKS COLLECTION 
 

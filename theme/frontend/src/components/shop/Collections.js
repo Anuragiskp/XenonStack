@@ -10,7 +10,7 @@ function Collections() {
   const itemsPerPage = 16;
   const [show, setShow] = useState(false);
   const [itemsData, setItemsData] = useState([]);
-  const URI = "http://localhost:5000/property/data"; // Adjust URI as needed
+  const URI = `https://xenonstack-q6kv.onrender.com/property/data`; 
 
   // FETCHING PROPERTY DATA
   useEffect(() => {

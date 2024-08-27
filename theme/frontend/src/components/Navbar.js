@@ -10,7 +10,7 @@ function DropdownNav({handleSearch, isSearching}) {
   const [userEmail, setUserEmail] = React.useState("");
   const [ItemsData, setItemsData] = React.useState([]);
 
-  const URI = "http://localhost:5000/property/data"
+  const URI = "https://xenonstack-q6kv.onrender.com/property/data"
 
   // FETCHING BOOKS COLLECTION 
 

@@ -7,7 +7,7 @@ import './UserProfile.css';
 function UserProfile() {
   const { email } = useParams();
   const [user, setUser] = useState(null);
-  const URI = `http://localhost:5000/api/user/${email}`; 
+  const URI = `https://xenonstack-q6kv.onrender.com/api/user/${email}`; 
 
   useEffect(() => {
     fetch(URI)
