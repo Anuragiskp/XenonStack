@@ -1,0 +1,66 @@
+.TH SYSOPCTL 1 "August 2024" "v0.1.0" "sysopctl Manual"
+
+.SH NAME
+sysopctl \- A system operation control command.
+
+.SH SYNOPSIS
+.B sysopctl
+.RI [ options ] " subcommand [ arguments ]"
+
+.SH DESCRIPTION
+.B sysopctl
+is a command-line tool for managing system resources and tasks. It provides functionalities like managing services, viewing system load, monitoring processes, and more.
+
+.SH OPTIONS
+.TP
+.B --help
+Display this help message and exit.
+.TP
+.B --version
+Display version information and exit.
+
+.SH SUBCOMMANDS
+.TP
+.B service list
+List all active services.
+.TP
+.B service start \fI<service-name>\fR
+Start a specific service.
+.TP
+.B service stop \fI<service-name>\fR
+Stop a specific service.
+.TP
+.B system load
+View the current system load averages.
+.TP
+.B disk usage
+Display disk usage statistics.
+.TP
+.B process monitor
+Monitor system processes in real-time.
+.TP
+.B logs analyze
+Analyze recent critical system logs.
+.TP
+.B backup \fI<path>\fR
+Initiate a backup of the specified directory or file.
+
+.SH EXAMPLES
+.TP
+List all running services:
+.B sysopctl service list
+.TP
+Start the nginx service:
+.B sysopctl service start nginx
+.TP
+Stop the nginx service:
+.B sysopctl service stop nginx
+.TP
+View system load averages:
+.B sysopctl system load
+
+.SH AUTHOR
+Written by [Your Name].
+
+.SH COPYRIGHT
+This is free software; see the source for copying conditions. There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.

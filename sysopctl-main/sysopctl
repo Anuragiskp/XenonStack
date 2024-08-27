@@ -1,0 +1,182 @@
+#!/bin/bash
+
+# Define the version of sysopctl
+VERSION="v0.1.0"
+
+# Function to display the help message
+show_help() {
+    echo "Usage: sysopctl [option] [subcommand] [arguments]"
+    echo
+    echo "Options:"
+    echo "  --help            Display this help message"
+    echo "  --version         Show version information"
+    echo
+    echo "Subcommands:"
+    echo "  service list      List running services"
+    echo "  service start <service-name>  Start a service"
+    echo "  service stop <service-name>   Stop a service"
+    echo "  system load       View system load"
+    echo "  disk usage        Check disk usage"
+    echo "  process monitor   Monitor system processes"
+    echo "  logs analyze      Analyze system logs"
+    echo "  backup <path>     Backup system files"
+    echo
+    echo "Examples:"
+    echo "  sysopctl service list                # List all running services"
+    echo "  sysopctl service start nginx         # Start the nginx service"
+    echo "  sysopctl system load                 # View system load averages"
+    echo "  sysopctl backup /home/user/docs      # Backup documents directory"
+    echo
+    echo "For more information, see the man page: man sysopctl"
+}
+
+# Function to display the version information
+show_version() {
+    echo "sysopctl version $VERSION"
+}
+
+# Function to list running services
+list_services() {
+    echo "Listing all active services..."
+    systemctl list-units --type=service --state=running
+}
+
+# Function to start a service
+start_service() {
+    if sudo systemctl start "$1" 2>/dev/null; then
+        echo "Started service: $1"
+    else
+        echo "Failed to start service: $1. Please check if the service name is correct."
+    fi
+}
+
+
+# Function to stop a service
+stop_service() {
+    if sudo systemctl stop "$1" 2>/dev/null; then
+        echo "Stopped service: $1"
+    else
+        echo "Failed to stop service: $1. Please check if the service name is correct."
+    fi
+}
+
+
+# Function to view system load
+view_load() {
+    echo "Current system load averages:"
+    uptime
+}
+
+# Function to check disk usage
+check_disk_usage() {
+    echo "Disk usage statistics by partition:"
+    df -h
+}
+
+# Function to monitor system processes
+monitor_processes() {
+    echo "Monitoring system processes..."
+    top
+}
+
+# Function to analyze system logs
+analyze_logs() {
+    echo "Analyzing recent critical log entries..."
+    journalctl -p crit -n 10 --no-pager
+}
+
+# Function to backup system files
+backup_files() {
+    if [ -z "$1" ]; then
+        echo "Error: No path specified for backup."
+        return 1
+    fi
+
+    BACKUP_PATH="$1"
+    BACKUP_DIR="Backup"  # Use a directory in your home folder
+
+    echo "Starting backup of $BACKUP_PATH to $BACKUP_DIR..."
+    mkdir -p "$BACKUP_DIR"  # Create the backup directory if it does not exist
+    rsync -av --progress "$BACKUP_PATH" "$BACKUP_DIR"
+    echo "Backup completed."
+}
+
+
+
+# Main script logic
+case "$1" in
+    --help)
+        show_help
+        ;;
+    --version)
+        show_version
+        ;;
+    service)
+        case "$2" in
+            list)
+                list_services
+                ;;
+            start)
+                start_service "$3"
+                ;;
+            stop)
+                stop_service "$3"
+                ;;
+            *)
+                echo "Unknown service command: $2"
+                show_help
+                ;;
+        esac
+        ;;
+    system)
+        case "$2" in
+            load)
+                view_load
+                ;;
+            *)
+                echo "Unknown system command: $2"
+                show_help
+                ;;
+        esac
+        ;;
+    disk)
+        case "$2" in
+            usage)
+                check_disk_usage
+                ;;
+            *)
+                echo "Unknown disk command: $2"
+                show_help
+                ;;
+        esac
+        ;;
+    process)
+        case "$2" in
+            monitor)
+                monitor_processes
+                ;;
+            *)
+                echo "Unknown process command: $2"
+                show_help
+                ;;
+        esac
+        ;;
+    logs)
+        case "$2" in
+            analyze)
+                analyze_logs
+                ;;
+            *)
+                echo "Unknown logs command: $2"
+                show_help
+                ;;
+        esac
+        ;;
+    backup)
+        backup_files "$2"
+        ;;
+    *)
+        echo "Unknown command: $1"
+        show_help
+        ;;
+esac
