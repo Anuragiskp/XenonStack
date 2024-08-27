@@ -1,0 +1,108 @@
+.grid-component{
+  text-align:center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  width: 90%;
+  margin: 5%;
+  height: 600px;
+}
+.grid-container{
+  display:flex;
+  flex-direction:row;
+  align-content:center;
+}
+
+.grid-link{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: inherit;
+}
+.grid-left{
+  height: 600px;
+  width: 100%;
+  background-image: url("../../../public/Images/grid_3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-right{
+  width: 100%;
+  margin-left: 5px;
+  display: flex;
+  flex-direction:column;
+}
+
+.grid-right-top{
+  display:flex;
+  flex-direction:row;
+  height: 50%;
+  align-content: center;
+}
+
+.grid-right-top-item-left{
+  background-image: url("../../../public/Images/grid_2.jpg");
+  height: 100%;
+  width: 100%;
+  margin: 0% 3% 3%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.grid-right-top-item-right{
+  background-image: url("../../../public/Images/grid_1.jpg");
+  height: 100%;
+  width: 100%;
+  margin: 0% 3% 3%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#temp{
+  margin-right:0px;
+}
+.grid-right-bottom{
+  background-image: url("../../../public/Images/grid_4.jpg");
+  width: 97%;
+  height: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 3% 0px 0% 3%;
+}
+
+.grid-left:hover, .grid-right-top-item-left:hover, .grid-right-top-item-right:hover, .grid-right-bottom:hover{
+  background-size: 130%;
+  transition: background-size 5s ease;
+}
+
+@media(max-width: 1000px)
+{
+  .grid-component{
+    height: 1500px;
+  }
+  .grid-container{
+    flex-direction: column;
+    align-items:center;
+  }
+  .grid-right{
+    height: 900px;
+    margin: 3% 0% 3% 0%;
+    align-content:center;
+  }
+  #temp{
+    margin: 0;
+  }
+  .grid-right-top-item{
+    margin-top: 0%;
+    margin-left: 0;
+  }
+  .grid-right-top-item:hover{
+    background-size: 250%;
+  }
+  .grid-left{
+    width: 100%;
+  }
+}

@@ -1,0 +1,58 @@
+.caption-left {
+    position: absolute;
+    color: black;
+    bottom: 30%;
+    left: 30%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: Poppins;
+}
+
+.caption-right {
+    position: absolute;
+    color: black;
+    bottom: 30%;
+    left: 70%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: Poppins;
+}
+
+.caption-center {
+    position: absolute;
+    color: black;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: Poppins;
+}
+
+.carousel-caption h3 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.carousel-caption p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.carousel-caption .btn {
+    background-color: #000;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.carousel-caption .btn:hover {
+    background-color: #444;
+}
+
+.carousel-indicators .active {
+    background-color: black;
+}

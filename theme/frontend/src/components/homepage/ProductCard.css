@@ -1,0 +1,22 @@
+.card-button {
+    display: flex;
+    justify-content: center;
+}
+
+.sectionHeader {
+    margin-top: 7em;
+    text-align: center;
+}
+
+.cards {
+    height: 360px;
+    width: 270px;
+}
+
+.homepage-cards-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    max-width: 100%;
+}
