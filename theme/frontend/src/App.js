@@ -18,18 +18,18 @@ import { Toaster } from 'react-hot-toast'
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [userDetails, setUserDetails] = React.useState({});
-  const [ItemsData, setItemsData] = React.useState([]);
+  // const [ItemsData, setItemsData] = React.useState([]);
 
   // FETCHING BOOKS COLLECTION
-  const URI = "http://localhost:5000/books/data"
+  // const URI = "http://localhost:5000/books/data"
 
-  React.useEffect(() =>{
-    fetch(URI)
-    .then(res => res.json())
-    .then(data =>{
-      setItemsData(data);
-    })
-  }, [])
+  // React.useEffect(() =>{
+  //   fetch(URI)
+  //   .then(res => res.json())
+  //   .then(data =>{
+  //     setItemsData(data);
+  //   })
+  // }, [])
   
 
   // LOGIC FOR GETTING LOGGED IN USER
@@ -60,16 +60,16 @@ function App() {
 
   // GETTING CATEGORIES FOR COLLECTIONS PAGE
 
-  const getUniqueCategories = (items) => {
-    const categories = items.map(item => item.category.mainCategory);
-    return [...new Set(categories)];
-  };
-  const categories = getUniqueCategories(ItemsData);
-  console.log(categories);
+  // const getUniqueCategories = (items) => {
+  //   const categories = items.map(item => item.category.mainCategory);
+  //   return [...new Set(categories)];
+  // };
+  // const categories = getUniqueCategories(ItemsData);
+  // console.log(categories);
 
-  const getCategoriesRoutes = categories.map((category) =>{
-    return <Route path={`/collections/${category}`} element={<Collections category={category}/>}/>
-  })
+  // const getCategoriesRoutes = categories.map((category) =>{
+  //   return <Route path={`/collections/${category}`} element={<Collections category={category}/>}/>
+  // })
 
   return (
     <div className="App">
