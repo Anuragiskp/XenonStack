@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-    origin: "https://xenon-stack-fusl62b4r-khushals-projects-dd0bc43c.vercel.app",
+    origin: "https://xenon-stack-31mvyut52-khushals-projects-dd0bc43c.vercel.app",
     methods: "GET,POST,PUT,DELETE",
     credentials: true
 }));
